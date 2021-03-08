@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">infonavit</string>
+    <string name="item_benevits">Benevits</string>
+    <string name="item_logout">Cerrar sesión</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password_recovery"><u>Olvidé mi contraseña</u></string>
+    <string name="register">No tengo cuenta. <u>Registrarme</u></string>
+    <string name="btn_login">Entrar</string>
+    <string name="locked_button">LO QUIERO</string>
+    <string name="expire_item_unlock">Vence en: 157 dias</string>
+</resources>
