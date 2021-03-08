@@ -94,7 +94,11 @@ class MainActivity : AppCompatActivity(){
         viewModel.logoutResponse.observe(this, Observer {
             it.equals(true).let {
                 UserPreferences(applicationContext).deleteToken()
-                startActivity(Intent(this, LoginActivity::class.java))
+//                startActivity(Intent(this, LoginActivity::class.java))
+//                finish()
+
+                startActivity(Intent(baseContext, LoginActivity::class.java)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP))
                 finish()
 
 //                val intent: Intent = Intent(this, LoginActivity::class.java)

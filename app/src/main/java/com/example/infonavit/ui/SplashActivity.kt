@@ -35,6 +35,7 @@ class SplashActivity : AppCompatActivity() {
             if(!TextUtils.isEmpty(userPreferences.getToken())){
 
                 startActivity(Intent(applicationContext, MainActivity::class.java))
+
             }else {
 
                 startActivity(Intent(applicationContext, LoginActivity::class.java))

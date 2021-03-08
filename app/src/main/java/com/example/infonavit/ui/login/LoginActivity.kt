@@ -1,6 +1,5 @@
 package com.example.infonavit.ui.login
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -8,12 +7,9 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import android.view.KeyEvent
-import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.infonavit.MainActivity
 import com.example.infonavit.data.network.RemoteDataSource
 import com.example.infonavit.databinding.ActivityLoginBinding
@@ -53,14 +49,14 @@ class LoginActivity : AppCompatActivity() {
         binding.txtCorreo.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
+                    s: CharSequence, start: Int,
+                    count: Int, after: Int
             ) {
             }
 
             override fun onTextChanged(
-                text: CharSequence, start: Int,
-                before: Int, count: Int
+                    text: CharSequence, start: Int,
+                    before: Int, count: Int
             ) {
                 validateTextInputsEmpty()
                 Log.e("text", text.toString())
@@ -70,14 +66,14 @@ class LoginActivity : AppCompatActivity() {
         binding.txtPassword.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
+                    s: CharSequence, start: Int,
+                    count: Int, after: Int
             ) {
             }
 
             override fun onTextChanged(
-                text: CharSequence, start: Int,
-                before: Int, count: Int
+                    text: CharSequence, start: Int,
+                    before: Int, count: Int
             ) {
                 validateTextInputsEmpty()
                 Log.e("text", text.toString())
@@ -104,7 +100,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun validateTextInputsEmpty(){
         val validationEmpty = (!TextUtils.isEmpty(binding.txtCorreo.text)) && (!TextUtils.isEmpty(
-            binding.txtPassword.text
+                binding.txtPassword.text
         ))
         binding.btnEntrar.isEnabled = validationEmpty
     }
@@ -124,7 +120,10 @@ class LoginActivity : AppCompatActivity() {
 
                     if (!TextUtils.isEmpty(result.data.token)) {
                         userPreferences.saveToken(result.data.token)
-                        startActivity(Intent(applicationContext, MainActivity::class.java))
+                        //startActivity(Intent(applicationContext, MainActivity::class.java))
+                        startActivity(Intent(baseContext, MainActivity::class.java)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP))
+                        finish()
                     } else {
                         showAlert("Intente nuevamente", "Usuario y contraseña incorrectos")
                     }

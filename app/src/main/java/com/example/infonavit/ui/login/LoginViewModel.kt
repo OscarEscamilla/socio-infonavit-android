@@ -12,11 +12,6 @@ import java.lang.Exception
 class LoginViewModel(private val repo: RepositoryImpl): ViewModel() {
 
 
-
-
-    private val email = MutableLiveData<String>()
-    private val password = MutableLiveData<String>()
-
     private val _loginResponse: MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
 
     val loginResponse: LiveData<Resource<LoginResponse>>
@@ -34,24 +29,6 @@ class LoginViewModel(private val repo: RepositoryImpl): ViewModel() {
         }
     }
 
-
-
-
-    fun setEmail(txt: String){
-        email.value = txt
-    }
-
-    fun getEmailLiveData(): LiveData<String>{
-        return email
-    }
-
-    fun setPassword(txt: String){
-        password.value = txt
-    }
-
-    fun getPasswordLiveData(): LiveData<String>{
-        return password
-    }
 
 
 
